@@ -11,6 +11,14 @@ const Register = (props) => {
 
   const { name, email, password, confirm } = loginData;
 
+
+  const updateData = (e) => {
+    setLoginData({
+      ...loginData,
+      [e.target.name]: e.target.value
+    })
+  }
+
   return(
     <div className="form-login">
       <div className="form-container dark-shadow">
@@ -24,6 +32,8 @@ const Register = (props) => {
               name="name"
               placeholder="Name"
               value={name}
+              onChange={updateData}
+
             />
           </div>
 
@@ -35,6 +45,7 @@ const Register = (props) => {
               name="email"
               placeholder="Email"
               value={email}
+              onChange={updateData}
             />
           </div>
 
@@ -46,6 +57,7 @@ const Register = (props) => {
               name="password"
               placeholder="Password"
               value={password}
+              onChange={updateData}
             />
           </div>
 
@@ -57,6 +69,7 @@ const Register = (props) => {
               name="confirm"
               placeholder="Password"
               value={confirm}
+              onChange={updateData}
             />
           </div>
 
