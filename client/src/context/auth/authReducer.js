@@ -17,12 +17,14 @@ export default (state, action) => {
     return{
       ...state,
       isAuth: true,
+      loading: false,
     }
 
     case GET_USER:
     return{
       ...state.user,
       isAuth: true,
+      loading: false,
       user: action.payload,
     }
   }

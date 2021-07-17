@@ -1,4 +1,5 @@
 import Register from './components/auth/Register';
+import Login from './components/auth/Login';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import authToken from './config/token';
 import AuthState from './context/auth/authState';
@@ -13,7 +14,8 @@ function App() {
     <AuthState>
       <Router>
         <Switch>
-          <Route path="/" component={Register} />
+          <Route exac path="/" component={Login} />
+          <Route path="/register" component={Register} />
         </Switch>
       </Router>
     </AuthState>

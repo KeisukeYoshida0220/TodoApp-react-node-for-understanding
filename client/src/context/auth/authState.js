@@ -6,11 +6,11 @@ import AuthReducer from './authReducer';
 
 import {
   SUCCESSFUL_SIGNUP,
-  SIGNUP_FAILED,
+  // SIGNUP_FAILED,
   GET_USER,
   SUCCESSFUL_LOGIN,
-  LOGIN_FAILED,
-  LOG_OUT,
+  // LOGIN_FAILED,
+  // LOG_OUT,
 } from '../../types';
 
 
@@ -20,6 +20,7 @@ const AuthState = (props) => {
     token: localStorage.getItem('token'),
     isAuth: null,
     user: null,
+    loading: true,
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
@@ -69,6 +70,21 @@ const AuthState = (props) => {
     }
   }
 
+  const signInUser = async (data) => {
+    try {
+      const response = await axiosClient.post('api/auth', data)
+      dispatch({
+        type: SUCCESSFUL_LOGIN,
+        payload: response.data,
+      })
+      getUserData();
+      console.log("success");
+    } catch(e) {
+      // statements
+      console.log(e);
+    }
+  }
+
 
   return(
     <AuthContext.Provider
@@ -77,9 +93,9 @@ const AuthState = (props) => {
       isAuth: state.isAuth,
       user: state.user,
       // alertMessage: state.alertMessage,
-      // loading: state.loading,
+      loading: state.loading,
       signUpUser,
-      // logInUser,
+      signInUser,
       getUserData,
       // logOut,
     }}>
