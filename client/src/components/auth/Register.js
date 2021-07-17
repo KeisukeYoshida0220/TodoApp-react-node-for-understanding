@@ -1,6 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import authContext from '../../context/auth/authContext';
 
 const Register = (props) => {
+
+  const {signUpUser} = useContext(authContext);
 
   const [loginData, setLoginData] = useState({
     name: '',
@@ -19,11 +22,16 @@ const Register = (props) => {
     })
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signUpUser({email, password, name});
+  }
+
   return(
     <div className="form-login">
       <div className="form-container dark-shadow">
         <h1>Register</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-field">
             <label>Name</label>
             <input
@@ -77,7 +85,7 @@ const Register = (props) => {
             <input
               type="submit"
               className="btn btn-primary btn-block"
-              value="Sign Up"
+              value="Sign Up" 
             />
           </div>
         </form>
