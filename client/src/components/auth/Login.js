@@ -1,11 +1,11 @@
 import React, {useState, useContext} from 'react';
-import AuthContext from '../../context/auth/authContext';
+import authContext from '../../context/auth/authContext';
 import {Link} from 'react-router-dom';
 
 const Login = (props) => {
 
   // signInUser Contextを作成
-  const {signInUser} = useContext(AuthContext);
+  const {signInUser} = useContext(authContext);
 
   const [loginData, setLoginData] = useState({
     email: '',

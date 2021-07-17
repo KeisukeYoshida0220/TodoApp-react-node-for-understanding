@@ -6,11 +6,11 @@ import AuthReducer from './authReducer';
 
 import {
   SUCCESSFUL_SIGNUP,
-  // SIGNUP_FAILED,
+  SIGNUP_FAILED,
   GET_USER,
   SUCCESSFUL_LOGIN,
-  // LOGIN_FAILED,
-  // LOG_OUT,
+  LOGIN_FAILED,
+  LOG_OUT,
 } from '../../types';
 
 

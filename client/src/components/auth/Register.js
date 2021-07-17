@@ -1,9 +1,10 @@
 import React, {useState, useContext} from 'react';
-import authContext from '../../context/auth/authContext';
+import AuthContext from '../../context/auth/authContext';
+import {Link} from 'react-router-dom';
 
 const Register = (props) => {
 
-  const {signUpUser} = useContext(authContext);
+  const {signUpUser} = useContext(AuthContext);
 
   const [loginData, setLoginData] = useState({
     name: '',
@@ -89,6 +90,10 @@ const Register = (props) => {
             />
           </div>
         </form>
+
+        <Link to={'/'}>
+          Login
+        </Link>
       </div>
     </div>
   );
