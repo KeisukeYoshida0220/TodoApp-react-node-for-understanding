@@ -23,7 +23,7 @@ export default (state, action) => {
     return{
       ...state.user,
       isAuth: true,
-      user: action.payload
+      user: action.payload,
     }
   }
 }
