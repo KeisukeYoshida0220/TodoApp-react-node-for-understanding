@@ -78,7 +78,7 @@ const AuthState = (props) => {
         payload: response.data,
       })
       getUserData();
-      console.log("success");
+      console.log('success');
     } catch(e) {
       // statements
       console.log(e);

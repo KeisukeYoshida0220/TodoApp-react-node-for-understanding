@@ -1,11 +1,17 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import authContext from '../../context/auth/authContext';
 import {Link} from 'react-router-dom';
 
 const Login = (props) => {
 
   // signInUser Contextを作成
-  const {signInUser} = useContext(authContext);
+  const {signInUser, isAuth} = useContext(authContext);
+
+  useEffect( () => {
+    if (isAuth) {
+      props.history.push('/projects');
+    }
+  })
 
   const [loginData, setLoginData] = useState({
     email: '',
