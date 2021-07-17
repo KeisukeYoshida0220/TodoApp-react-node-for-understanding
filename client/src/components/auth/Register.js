@@ -31,7 +31,7 @@ const Register = (props) => {
     <div className="form-login">
       <div className="form-container dark-shadow">
         <h1>Register</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           <div className="form-field">
             <label>Name</label>
             <input

@@ -18,5 +18,12 @@ export default (state, action) => {
       ...state,
       isAuth: true,
     }
+
+    case GET_USER:
+    return{
+      ...state.user,
+      isAuth: true,
+      user: action.payload
+    }
   }
 }

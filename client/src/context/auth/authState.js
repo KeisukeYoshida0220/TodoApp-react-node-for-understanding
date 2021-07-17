@@ -34,6 +34,8 @@ const AuthState = (props) => {
         payload: response.data,
       });
 
+      getUserData();
+
       alert("push");
       console.log(data);
       // statements
@@ -46,6 +48,27 @@ const AuthState = (props) => {
     }
   };
 
+  const getUserData = async (data) => {
+    const token = localStorage.getItem('token')
+
+    if (token) {
+      authToken(token);
+    }
+
+    try {
+      const response = await axiosClient.get('api/auth')
+      dispatch({
+        type: GET_USER,
+        payload: response.data.user,
+      })
+
+      console.log("きた?");
+    } catch(e) {
+      // statements
+      console.log(e);
+    }
+  }
+
 
   return(
     <AuthContext.Provider
@@ -57,7 +80,7 @@ const AuthState = (props) => {
       // loading: state.loading,
       signUpUser,
       // logInUser,
-      // getUserData,
+      getUserData,
       // logOut,
     }}>
       {props.children}
